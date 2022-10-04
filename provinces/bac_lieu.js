@@ -1,7 +1,7 @@
 const bac_lieu = {
 	title: 'Tỉnh Bạc Liêu',
-	population: '978.695',
-	area: '2.526 km²',
+	population: '204.045',
+	area: '2.468,7 km²',
 	color: [134, 43, 203, 0.8],
 	rings: [
 		[105.26230258524728, 9.399400927457092], // Giáp cà mau và kiên giang

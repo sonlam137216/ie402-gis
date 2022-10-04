@@ -1,7 +1,7 @@
 const ca_mau = {
 	title: 'Tỉnh Cà Mau',
-	population: '1.421.000',
-	area: '5.331 km²',
+	population: '1.194.476',
+	area: '5.294,9 km²',
 	color: [43, 203, 159, 0.8],
 	rings: [
 		[105.26230258524728, 9.399400927457092], // Giáp bạc liêu

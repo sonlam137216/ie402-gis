@@ -12,7 +12,6 @@ require([
     container: 'viewDiv',
     map: map,
     zoom: 8,
-    // center: [15, 65] // longitude, latitude
     center: [106.10183715820308, 10.583671721437], // longitude, latitude 10.8811081,106.7976408
   });
   const graphicsLayer = new GraphicsLayer();
@@ -26,40 +25,6 @@ require([
         title: '{title}',
         content: '<a>Dân số: {population} <br> Diện tích: {area}</a>',
       },
-    });
-  };
-
-  const withUniversity = (data) => {
-    return new Graphic({
-      symbol: {
-        type: 'picture-marker',
-        url: universityImg,
-        width: '48px',
-        height: '48px',
-      },
-      geometry: { type: 'point', ...data },
-    });
-  };
-  const withMuseum = (data) => {
-    return new Graphic({
-      symbol: {
-        type: 'picture-marker',
-        url: museumImg,
-        width: '48px',
-        height: '48px',
-      },
-      geometry: { type: 'point', ...data },
-    });
-  };
-  const widthPark = (data) => {
-    return new Graphic({
-      symbol: {
-        type: 'picture-marker',
-        url: parkImg,
-        width: '48px',
-        height: '48px',
-      },
-      geometry: { type: 'point', ...data },
     });
   };
   const widthBridge = (data) => {
@@ -96,36 +61,6 @@ require([
   graphicsLayer.add(withProvince(tra_vinh));
   graphicsLayer.add(withProvince(tien_giang));
   graphicsLayer.add(withProvince(soc_trang));
-
-  // trường đại học
-  graphicsLayer.add(withUniversity(uit));
-  graphicsLayer.add(withUniversity(ftu));
-  graphicsLayer.add(withUniversity(kien_giang_university));
-  graphicsLayer.add(withUniversity(bac_lieu_university));
-  graphicsLayer.add(withUniversity(binh_duong_university));
-  graphicsLayer.add(withUniversity(hcmut));
-  graphicsLayer.add(withUniversity(an_giang_university));
-  graphicsLayer.add(withUniversity(can_tho_university));
-  graphicsLayer.add(withUniversity(tra_vinh_university));
-  graphicsLayer.add(withUniversity(utc));
-
-  // bảo tàng
-  graphicsLayer.add(withMuseum(ca_mau_m));
-  graphicsLayer.add(withMuseum(kien_giang_m));
-  graphicsLayer.add(withMuseum(ben_tre_m));
-  graphicsLayer.add(withMuseum(tien_giang_m));
-
-  // // công viên
-  // graphicsLayer.add(widthPark(tao_dan_p));
-  // graphicsLayer.add(widthPark(gia_dinh_p));
-  // graphicsLayer.add(widthPark(ca_mau_p));
-  // graphicsLayer.add(widthPark(bac_lieu_p));
-  // graphicsLayer.add(widthPark(lai_thieu_p));
-  // graphicsLayer.add(widthPark(nguyen_van_tri_p));
-  // graphicsLayer.add(widthPark(my_thanh_an_p));
-  // graphicsLayer.add(widthPark(sa_dec_p));
-  // graphicsLayer.add(widthPark(tam_hiep_p));
-  // graphicsLayer.add(widthPark(the_gioi_tuoi_tho_p));
 
   // cầu
   graphicsLayer.add(widthBridge(binh_loi_b));
