@@ -71,6 +71,11 @@ require([
         height: '48px',
       },
       geometry: { type: 'point', ...data },
+      attributes: data,
+      popupTemplate: {
+        title: '{title}',
+        content: 'Cầu',
+      },
     });
   };
   const withWay = (data) => {
@@ -128,14 +133,10 @@ require([
   // graphicsLayer.add(widthPark(the_gioi_tuoi_tho_p));
 
   // cầu
-  graphicsLayer.add(widthBridge(binh_loi_b));
-  graphicsLayer.add(widthBridge(buu_hoa_b));
   graphicsLayer.add(widthBridge(ca_mau_b));
   graphicsLayer.add(widthBridge(cao_lanh_b));
-  graphicsLayer.add(widthBridge(dong_nai_b));
   graphicsLayer.add(widthBridge(kien_giang_b));
   graphicsLayer.add(widthBridge(long_binh_b));
-  graphicsLayer.add(widthBridge(sai_gon_b));
   graphicsLayer.add(widthBridge(tan_an_b));
   graphicsLayer.add(widthBridge(du_tho_b));
 
