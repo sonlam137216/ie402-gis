@@ -2,7 +2,7 @@ const vinh_long = {
   title: 'Tỉnh Vĩnh Long',
   population: '1.142.000',
   area: '1.475 km²',
-  color: [242, 51, 92],
+  color: [242, 51, 92, 0.6],
   rings: [
     [105.6828158, 10.1341193],
     [105.685379, 10.1328374],

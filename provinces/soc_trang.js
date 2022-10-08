@@ -2,7 +2,7 @@ const soc_trang = {
   title: 'Tỉnh Sóc Trăng',
   population: '1.621.000',
   area: '3.233 km²',
-  color: [129, 42, 235],
+  color: [129, 42, 235, 0.6],
   rings: [
     [105.8276805, 9.2443702], //Bạc liêu & Biển
     //Biển

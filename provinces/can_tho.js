@@ -2,7 +2,7 @@ const can_tho = {
   title: 'Tỉnh Cần Thơ',
   population: '1.282.000',
   area: '1.439 km²',
-  color: [84, 247, 59],
+  color: [84, 247, 59, 0.6],
   rings: [
     [105.23123754824994, 10.208586020273984], // giao với kiên giang và an giang
     [105.2256774902344, 10.201322320509433],

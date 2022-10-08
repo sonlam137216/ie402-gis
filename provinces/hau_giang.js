@@ -2,7 +2,7 @@ const hau_giang = {
   title: 'Tỉnh Hậu Giang',
   population: '974.126',
   area: '1.608 km²',
-  color: [85, 237, 237],
+  color: [85, 237, 237, 0.6],
   rings: [
     [105.84549307823181, 9.982629492501587], // giao với cần thơ và vĩnh long
     [105.84476351737976, 9.98197437471562],
