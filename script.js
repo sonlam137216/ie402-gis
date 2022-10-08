@@ -39,7 +39,6 @@ require([
       attributes: data,
       popupTemplate: {
         title: '{title}',
-        content: 'Cầu',
       },
     });
   };
