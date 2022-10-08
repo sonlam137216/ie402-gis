@@ -13,9 +13,7 @@ require([
     map: map,
     zoom: 8,
 
-
     center: [106.10183715820308, 10.583671721437],
-
   });
   const graphicsLayer = new GraphicsLayer();
 
@@ -29,6 +27,39 @@ require([
         content: "<a>Dân số: {population} <br> Diện tích: {area}</a>",
       },
     });
+  };
+
+  const withCity = (data) => {
+    return new Graphic({
+      symbol: {
+        type: "picture-marker",
+        url: cityImg,
+        width: "24px",
+        height: "24px",
+      },
+      geometry: { type: "point", ...data },
+      attributes: data,
+      popupTemplate: {
+        title: "{title}",
+      },
+    });
+  };
+
+  const withTown = (data) => {
+    return new Graphic({
+      symbol: {
+        type: "picture-marker",
+        url: townImg,
+        width: "24px",
+        height: "24px",
+      },
+      geometry: { type: "point", ...data },
+      attributes: data,
+      popupTemplate: {
+        title: "{title}",
+      },
+    });
+  };
 
   const widthBridge = (data) => {
     return new Graphic({
@@ -39,12 +70,11 @@ require([
         height: "30px",
       },
 
-      geometry: { type: 'point', ...data },
+      geometry: { type: "point", ...data },
       attributes: data,
       popupTemplate: {
-        title: '{title}',
+        title: "{title}",
       },
-
     });
   };
   const withWay = (data) => {
@@ -70,7 +100,6 @@ require([
   graphicsLayer.add(withProvince(tra_vinh));
   graphicsLayer.add(withProvince(tien_giang));
   graphicsLayer.add(withProvince(soc_trang));
-
 
   // cầu
   graphicsLayer.add(widthBridge(ca_mau_b));
