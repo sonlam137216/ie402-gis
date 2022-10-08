@@ -1,30 +1,30 @@
 require([
-  'esri/config',
-  'esri/Map',
-  'esri/views/MapView',
-  'esri/Graphic',
-  'esri/layers/GraphicsLayer',
+  "esri/config",
+  "esri/Map",
+  "esri/views/MapView",
+  "esri/Graphic",
+  "esri/layers/GraphicsLayer",
 ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer) {
   const map = new Map({
-    basemap: 'topo-vector',
+    basemap: "topo-vector",
   });
   const view = new MapView({
-    container: 'viewDiv',
+    container: "viewDiv",
     map: map,
     zoom: 8,
-    // center: [15, 65] // longitude, latitude
-    center: [106.10183715820308, 10.583671721437], // longitude, latitude 10.8811081,106.7976408
+
+    center: [106.10183715820308, 10.583671721437],
   });
   const graphicsLayer = new GraphicsLayer();
 
   const withProvince = (data) => {
     return new Graphic({
-      geometry: { type: 'polygon', rings: data.rings },
-      symbol: { type: 'simple-fill', color: data.color },
+      geometry: { type: "polygon", rings: data.rings },
+      symbol: { type: "simple-fill", color: data.color },
       attributes: data,
       popupTemplate: {
-        title: '{title}',
-        content: '<a>Dân số: {population} <br> Diện tích: {area}</a>',
+        title: "{title}",
+        content: "<a>Dân số: {population} <br> Diện tích: {area}</a>",
       },
     });
   };
@@ -32,53 +32,86 @@ require([
   const withUniversity = (data) => {
     return new Graphic({
       symbol: {
-        type: 'picture-marker',
+        type: "picture-marker",
         url: universityImg,
-        width: '48px',
-        height: '48px',
+        width: "24px",
+        height: "24px",
       },
-      geometry: { type: 'point', ...data },
+      geometry: { type: "point", ...data },
     });
   };
   const withMuseum = (data) => {
     return new Graphic({
       symbol: {
-        type: 'picture-marker',
+        type: "picture-marker",
         url: museumImg,
-        width: '48px',
-        height: '48px',
+        width: "48px",
+        height: "48px",
       },
-      geometry: { type: 'point', ...data },
+      geometry: { type: "point", ...data },
     });
   };
+
+  const withCity = (data) => {
+    return new Graphic({
+      symbol: {
+        type: "picture-marker",
+        url: cityImg,
+        width: "24px",
+        height: "24px",
+      },
+      geometry: { type: "point", ...data },
+      attributes: data,
+      popupTemplate: {
+        title: "{title}",
+      },
+    });
+  };
+
+  const withTown = (data) => {
+    return new Graphic({
+      symbol: {
+        type: "picture-marker",
+        url: townImg,
+        width: "24px",
+        height: "24px",
+      },
+      geometry: { type: "point", ...data },
+      attributes: data,
+      popupTemplate: {
+        title: "{title}",
+      },
+    });
+  };
+
   const widthPark = (data) => {
     return new Graphic({
       symbol: {
-        type: 'picture-marker',
+        type: "picture-marker",
         url: parkImg,
-        width: '48px',
-        height: '48px',
+        width: "48px",
+        height: "48px",
       },
-      geometry: { type: 'point', ...data },
+      geometry: { type: "point", ...data },
     });
   };
   const widthBridge = (data) => {
     return new Graphic({
       symbol: {
-        type: 'picture-marker',
+        type: "picture-marker",
         url: bridgeImg,
-        width: '48px',
-        height: '48px',
+        width: "30px",
+        height: "30px",
       },
-      geometry: { type: 'point', ...data },
+      geometry: { type: "point", ...data },
     });
   };
   const withWay = (data) => {
     return new Graphic({
-      symbol: { type: 'simple-line', color: data.color, width: 3 },
+      symbol: { type: "simple-line", color: data.color, width: 3 },
       attributes: { description: data.description },
-      popupTemplate: { title: '{description}' },
-      geometry: { type: 'polyline', paths: data.paths },
+      popupTemplate: { title: "{description}" },
+      geometry: { type: "polyline", paths: data.paths },
     });
   };
 
@@ -113,7 +146,6 @@ require([
   graphicsLayer.add(withMuseum(ca_mau_m));
   graphicsLayer.add(withMuseum(kien_giang_m));
   graphicsLayer.add(withMuseum(ben_tre_m));
-  graphicsLayer.add(withMuseum(tien_giang_m));
 
   // // công viên
   // graphicsLayer.add(widthPark(tao_dan_p));
@@ -150,6 +182,38 @@ require([
   graphicsLayer.add(withWay(ql54));
   graphicsLayer.add(withWay(ql60));
   graphicsLayer.add(withWay(ql61b));
+
+  // city
+  graphicsLayer.add(withCity(rach_gia_city));
+  graphicsLayer.add(withCity(bac_lieu_city));
+  graphicsLayer.add(withCity(vi_thanh_city));
+  graphicsLayer.add(withCity(nga_bay_city));
+  graphicsLayer.add(withCity(can_tho_city));
+  graphicsLayer.add(withCity(long_xuyen_city));
+  graphicsLayer.add(withCity(chau_doc_city));
+  graphicsLayer.add(withCity(cao_lanh_city));
+  graphicsLayer.add(withCity(sa_dec_city));
+  graphicsLayer.add(withCity(hong_ngu_city));
+  graphicsLayer.add(withCity(soc_trang_city));
+  graphicsLayer.add(withCity(tan_an_city));
+  graphicsLayer.add(withCity(my_tho_city));
+  graphicsLayer.add(withCity(vinh_long_city));
+  graphicsLayer.add(withCity(ben_tre_city));
+  graphicsLayer.add(withCity(tra_vinh_city));
+  graphicsLayer.add(withCity(ca_mau_city));
+
+  //town
+  graphicsLayer.add(withTown(gia_rai_town));
+  graphicsLayer.add(withTown(nga_nam_town));
+  graphicsLayer.add(withTown(vinh_chau_town));
+  graphicsLayer.add(withTown(long_my_town));
+  graphicsLayer.add(withTown(ha_tien_town));
+  graphicsLayer.add(withTown(tan_chau_town));
+  graphicsLayer.add(withTown(binh_minh_town));
+  graphicsLayer.add(withTown(duyen_hai_town));
+  graphicsLayer.add(withTown(go_cong_town));
+  graphicsLayer.add(withTown(cai_lay_town));
+  graphicsLayer.add(withTown(kien_tuong_town));
 
   map.add(graphicsLayer);
 });
